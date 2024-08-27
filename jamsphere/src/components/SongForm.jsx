@@ -7,19 +7,50 @@ import Button from "./Button";
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
   margin-bottom: 30px;
   background-color: ${(props) => props.theme.colors.background};
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  margin: 20px;
 `;
 
 const Input = styled.input`
-  padding: 10px;
-  border-radius: 4px;
+  padding: 12px 15px;
+  border-radius: 8px;
   border: 1px solid ${(props) => props.theme.colors.border};
   font-size: 16px;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: ${(props) => props.theme.colors.primary};
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  }
+`;
+
+const ButtonStyled = styled(Button)`
+  background-color: ${(props) => props.theme.colors.primary};
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.primaryDark};
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
 `;
 
 const SongForm = ({ songToEdit = null }) => {
@@ -61,7 +92,9 @@ const SongForm = ({ songToEdit = null }) => {
         value={artist}
         onChange={(e) => setArtist(e.target.value)}
       />
-      <Button type="submit">{songToEdit ? "Update Song" : "Add Song"}</Button>
+      <ButtonStyled type="submit">
+        {songToEdit ? "Update Song" : "Add Song"}
+      </ButtonStyled>
     </Form>
   );
 };

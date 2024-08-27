@@ -26,7 +26,7 @@ const Container = styled.div`
 const Title = styled.h2`
   color: ${(props) => props.theme.colors.primary};
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
 `;
@@ -35,7 +35,7 @@ const HomePage = () => {
   return (
     <PageWrapper>
       <Container>
-        <Title>SongMaster</Title>
+        <Title>JamSphere</Title>
         <SongForm />
         <SongList />
       </Container>
@@ -44,3 +44,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+

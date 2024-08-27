@@ -1,35 +1,78 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 
+// Define dynamic styles
+const gradientBackground = (props) => css`
+  background: linear-gradient(
+    135deg,
+    ${props.theme.colors.primaryLight},
+    ${props.theme.colors.primary}
+  );
+`;
+
+const gradientHoverBackground = (props) => css`
+  background: linear-gradient(
+    135deg,
+    ${props.theme.colors.primaryDark},
+    ${props.theme.colors.primary}
+  );
+`;
+
+const gradientSecondaryBackground = (props) => css`
+  background: linear-gradient(
+    135deg,
+    ${props.theme.colors.secondaryLight},
+    ${props.theme.colors.secondary}
+  );
+`;
+
+const gradientSecondaryHoverBackground = (props) => css`
+  background: linear-gradient(
+    135deg,
+    ${props.theme.colors.secondaryDark},
+    ${props.theme.colors.secondary}
+  );
+`;
+
+// Styled Button component
 const Button = styled.button`
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 50px;
   border: none;
-  background-color: ${(props) => props.theme.colors.primary};
+  ${gradientBackground}
   color: white;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow:
-    0 4px 6px rgba(50, 50, 93, 0.11),
-    0 1px 3px rgba(0, 0, 0, 0.08);
+    0 6px 12px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.08);
+  outline: none;
 
   &:hover {
-    transform: translateY(-2px);
+    ${gradientHoverBackground}
+    transform: translateY(-4px);
     box-shadow:
-      0 7px 14px rgba(50, 50, 93, 0.1),
+      0 8px 16px rgba(0, 0, 0, 0.1),
       0 3px 6px rgba(0, 0, 0, 0.08);
   }
 
   &:active {
-    transform: translateY(1px);
+    transform: translateY(-1px);
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.1),
+      0 2px 4px rgba(0, 0, 0, 0.08);
   }
 
   ${(props) =>
     props.secondary &&
     css`
-      background-color: ${props.theme.colors.secondary};
+      ${gradientSecondaryBackground}
+
+      &:hover {
+        ${gradientSecondaryHoverBackground}
+      }
     `}
 `;
 
