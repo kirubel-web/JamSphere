@@ -15,19 +15,26 @@ const StyledItem = styled.li`
 
 const SongInfo = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   margin-bottom: 10px;
 `;
 
 const SongTitle = styled.h3`
   margin: 0;
   color: ${(props) => props.theme.colors.text};
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: 18px;
+  max-width: 50%;
 `;
 
 const SongArtist = styled.p`
   margin: 0;
   color: ${(props) => props.theme.colors.textLight};
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: 15px;
+  max-width: 50%;
 `;
 
 const ButtonGroup = styled.div`
@@ -40,7 +47,7 @@ const SongItem = ({ song }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteSongThunk(song._id)); // Using _id as it's commonly used in MongoDB.
+    dispatch(deleteSongThunk(song._id));
   };
 
   if (isEditing) {
@@ -66,10 +73,10 @@ const SongItem = ({ song }) => {
           <Button secondary onClick={handleDelete}>
             Delete
           </Button>
-            </ButtonGroup>
-          </SongInfo>
-        </StyledItem>
-      );
-    };
+        </ButtonGroup>
+      </SongInfo>
+    </StyledItem>
+  );
+};
 
-    export default SongItem;
+export default SongItem;

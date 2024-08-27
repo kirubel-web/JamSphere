@@ -8,7 +8,7 @@ import theme from "./styles/theme";
 import globalStyles from "./styles/GlobalStyles";
 import HomePage from "./pages/HomePage";
 
-console.log("Global styles:", globalStyles);
+console.log("Global styles:", globalStyles); // debugging line
 
 function App() {
   return (
@@ -22,3 +22,4 @@ function App() {
 }
 
 export default App;
+
