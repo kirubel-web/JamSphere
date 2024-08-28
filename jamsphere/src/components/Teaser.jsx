@@ -1,7 +1,6 @@
-// write normal simple welcome and get started page
-
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Confetti from "react-confetti";
 import "./styles.css";
 
 export default function Teaser() {
@@ -9,6 +8,15 @@ export default function Teaser() {
 
   return (
     <div className="teaser-container">
+      {/* Confetti */}
+      <Confetti
+        width={window.innerWidth}
+        height={window.innerHeight}
+        numberOfPieces={300}
+        recycle={false}
+      />
+
+      {/* Page Content */}
       <h1>Welcome to Jamsphere</h1>
       <p>
         Jamsphere is a web application that allows you to create, share, and

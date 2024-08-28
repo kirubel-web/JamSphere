@@ -139,3 +139,13 @@ p {
   color: #606770;
   font-size: 0.9rem;
 }
+.teaser-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 600px;
+}
