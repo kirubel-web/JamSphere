@@ -44,7 +44,7 @@ const ButtonGroup = styled.div`
   gap: 30px;
 
 
-}
+
 `;
 
 const SongItem = ({ song }) => {
