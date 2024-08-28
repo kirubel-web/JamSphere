@@ -13,7 +13,13 @@ const app = express();
 connectDB();
 
 // Middleware
-app.use(cors());
+app.use(
+    cors({
+      origin: "*",
+      methods: ["GET", "POST"],
+      credentials: true,
+    }),
+  );
 app.use(express.json());
 
 // Routes
