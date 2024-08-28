@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
+import Button from "./Button";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -76,7 +77,9 @@ export default function SignUp() {
           />
           <label htmlFor="password">Password</label>
         </div>
-        <button type="submit">Sign Up</button>
+        <Button gradient type="submit">
+          Sign Up
+        </Button>
         {error && <p className="error">{error}</p>}
       </form>
       <div className="divider">

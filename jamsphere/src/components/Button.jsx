@@ -3,76 +3,71 @@ import { css } from "@emotion/react";
 
 // Define dynamic styles
 const gradientBackground = (props) => css`
-  background: linear-gradient(
-    135deg,
-    ${props.theme.colors.primaryLight},
-    ${props.theme.colors.primary}
+  background-image: linear-gradient(
+    to right,
+    ${props.theme.colors.primaryLight} 0%,
+    ${props.theme.colors.primary} 51%,
+    ${props.theme.colors.primaryLight} 100%
   );
+  background-size: 200% auto;
 `;
 
 const gradientHoverBackground = (props) => css`
-  background: linear-gradient(
-    135deg,
-    ${props.theme.colors.primaryDark},
-    ${props.theme.colors.primary}
-  );
+  background-position: right center;
 `;
 
 const gradientSecondaryBackground = (props) => css`
-  background: linear-gradient(
-    135deg,
-    ${props.theme.colors.secondaryLight},
-    ${props.theme.colors.secondary}
+  background-image: linear-gradient(
+    to right,
+    ${props.theme.colors.secondaryLight} 0%,
+    ${props.theme.colors.secondary} 51%,
+    ${props.theme.colors.secondaryLight} 100%
   );
+  background-size: 200% auto;
 `;
 
 const gradientSecondaryHoverBackground = (props) => css`
-  background: linear-gradient(
-    135deg,
-    ${props.theme.colors.secondaryDark},
-    ${props.theme.colors.secondary}
-  );
+  background-position: right center;
 `;
 
 // Styled Button component
 const Button = styled.button`
-  padding: 12px 24px;
-  border-radius: 50px;
+  padding: 15px 45px;
+  border-radius: 10px;
   border: none;
-  ${gradientBackground}
-  color: white;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow:
-    0 6px 12px rgba(0, 0, 0, 0.1),
-    0 2px 4px rgba(0, 0, 0, 0.08);
   outline: none;
+  display: block;
+  margin: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+
+  ${(props) =>
+    props.secondary ? gradientSecondaryBackground : gradientBackground}
 
   &:hover {
-    ${gradientHoverBackground}
-    transform: translateY(-4px);
-    box-shadow:
-      0 8px 16px rgba(0, 0, 0, 0.1),
-      0 3px 6px rgba(0, 0, 0, 0.08);
-  }
-
-  &:active {
-    transform: translateY(-1px);
-    box-shadow:
-      0 4px 8px rgba(0, 0, 0, 0.1),
-      0 2px 4px rgba(0, 0, 0, 0.08);
+    ${(props) =>
+      props.secondary
+        ? gradientSecondaryHoverBackground
+        : gradientHoverBackground}
+    color: #fff;
+    text-decoration: none;
   }
 
   ${(props) =>
-    props.secondary &&
+    props.gradient &&
     css`
-      ${gradientSecondaryBackground}
-
-      &:hover {
-        ${gradientSecondaryHoverBackground}
-      }
+      background-image: linear-gradient(
+        to right,
+        #1d2b64 0%,
+        #f8cdda 51%,
+        #1d2b64 100%
+      );
     `}
 `;
 
