@@ -7,7 +7,9 @@ import SongForm from "./SongForm";
 
 const StyledItem = styled.li`
   background-color: ${(props) => props.theme.colors.background};
+  border: 1px solid ${(props) => props.theme.colors.border};
   border-radius: 8px;
+
   padding: 20px;
   margin-bottom: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -25,7 +27,7 @@ const SongTitle = styled.h3`
   word-wrap: break-word;
   overflow-wrap: break-word;
   font-size: 18px;
-  max-width: 50%;
+  max-width: 100%;
 `;
 
 const SongArtist = styled.p`
@@ -34,12 +36,12 @@ const SongArtist = styled.p`
   word-wrap: break-word;
   overflow-wrap: break-word;
   font-size: 15px;
-  max-width: 50%;
+  max-width: 30%;
 `;
 
 const ButtonGroup = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 30px;
 `;
 
 const SongItem = ({ song }) => {
