@@ -42,6 +42,10 @@ const SongArtist = styled.p`
 const ButtonGroup = styled.div`
   display: flex;
   gap: 30px;
+
+@media (max-width:768px){
+gap:10px;
+}
 `;
 
 const SongItem = ({ song }) => {
