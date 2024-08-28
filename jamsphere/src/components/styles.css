@@ -26,15 +26,16 @@
 
 .login-form input,
 .signup-form input {
+  width: 100%;
   padding: 14px;
-  padding-right: 45%;
+  padding-right: 14px;
   margin-bottom: 20px;
   border-radius: 6px;
   border: 1px solid #dddfe2;
   font-size: 1rem;
   transition: border-color 0.3s ease;
+  box-sizing: border-box;
 }
-
 .login-form input:focus,
 .signup-form input:focus {
   outline: none;
