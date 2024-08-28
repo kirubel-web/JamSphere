@@ -32,7 +32,7 @@ const gradientSecondaryHoverBackground = (props) => css`
 
 // Styled Button component
 const Button = styled.button`
-  padding: 15px 45px;
+  padding: 10px 45px;
   border-radius: 10px;
   border: none;
   font-size: 16px;

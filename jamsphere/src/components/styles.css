@@ -140,12 +140,59 @@ p {
   font-size: 0.9rem;
 }
 .teaser-container {
+  position: relative;
+  text-align: center;
+  padding: 2rem;
+
+ 
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: 20px;
-  margin: 0 auto;
-  text-align: center;
-  max-width: 600px;
+  align-items: center;
+  overflow: hidden;
 }
+
+.floating-image {
+  position: absolute;
+  animation: float 10s infinite linear;
+  opacity: 0.8;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) translateX(0);
+  }
+  50% {
+    transform: translateY(0) translateX(20px);
+  }
+  100% {
+    transform: translateY(-100vh) translateX(-20px);
+  }
+}
+
+.floating-image:nth-child(odd) {
+  animation-direction: reverse;
+}
+
+.floating-image.small {
+  width: 30px;
+  height: 30px;
+  animation-duration: 8s;
+}
+
+.floating-image.medium {
+  width: 50px;
+  height: 50px;
+  animation-duration: 12s;
+}
+
+.floating-image.large {
+  width: 70px;
+  height: 70px;
+  animation-duration: 15s;
+}
+
+
+
+
