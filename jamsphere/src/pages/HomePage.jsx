@@ -1,8 +1,9 @@
 // HomePage.jsx
-import React from "react";
+import React, { useContext } from "react";
 import styled from "@emotion/styled";
 import SongList from "../components/SongList";
 import SongForm from "../components/SongForm";
+import { AuthContext } from "../context/AuthContext";
 
 const PageWrapper = styled.div`
   display: flex;
@@ -32,10 +33,15 @@ const Title = styled.h2`
 `;
 
 const HomePage = () => {
+  const { user, logout } = useContext(AuthContext);
   return (
     <PageWrapper>
       <Container>
         <Title>JamSphere</Title>
+        <h3>Welcome, {user?.username || user.user.username}!</h3>
+        <button className="logout-button" onClick={logout}>
+          Logout
+        </button>
         <SongForm />
         <SongList />
       </Container>
@@ -44,4 +50,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
