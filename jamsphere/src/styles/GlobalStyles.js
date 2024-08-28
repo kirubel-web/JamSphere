@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 
 const globalStyles = css`
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
   /* Basic Reset */
   * {
     margin: 0;
@@ -10,9 +11,8 @@ const globalStyles = css`
 
   /* Body Styles */
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-      "Helvetica Neue", sans-serif;
+    font-family: "Poppins", sans-serif;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: linear-gradient(
@@ -32,12 +32,12 @@ const globalStyles = css`
   }
   input {
     background-color: #f7f7f7;
+    color: #111;
   }
 
   /* Code Block Styles */
   code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-      monospace;
+    font-family: "Poppins", sans-serif;
     background-color: #f4f4f4; /* Light background for code blocks */
     border-radius: 4px;
     padding: 0.2rem 0.4rem;

@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
+import Button from "./Button";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -43,7 +44,7 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      <h1>Sign In</h1>
+      <h2 justify="center">Sign In</h2>
       <form onSubmit={handleSubmit} className="login-form">
         <div className="form-group">
           <input
@@ -67,7 +68,9 @@ export default function Login() {
           />
           <label htmlFor="password">Password</label>
         </div>
-        <button type="submit">Sign In</button>
+        <Button gradient type="submit">
+          Sign In
+        </Button>
         {error && <p className="error">{error}</p>}
       </form>
       <div className="divider">

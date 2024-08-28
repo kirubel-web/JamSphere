@@ -92,9 +92,9 @@ const SongForm = ({ songToEdit = null }) => {
         value={artist}
         onChange={(e) => setArtist(e.target.value)}
       />
-      <ButtonStyled type="submit">
+      <Button gradient type="submit">
         {songToEdit ? "Update Song" : "Add Song"}
-      </ButtonStyled>
+      </Button>
     </Form>
   );
 };
