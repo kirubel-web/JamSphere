@@ -30,6 +30,9 @@ const globalStyles = css`
     align-items: center;
     min-height: 100vh;
   }
+  input {
+    background-color: #f7f7f7;
+  }
 
   /* Code Block Styles */
   code {
@@ -74,4 +77,3 @@ const globalStyles = css`
 `;
 
 export default globalStyles;
-
