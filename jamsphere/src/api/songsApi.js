@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://jamsphere-backend.vercel.app/api";
+const API_URL = "https://jamsphere-backend.vercel.app/api";
 
 export const fetchSongs = async () => {
   const response = await axios.get(`${API_URL}/songs`);
