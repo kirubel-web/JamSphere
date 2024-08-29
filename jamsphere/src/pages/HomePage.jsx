@@ -32,9 +32,10 @@ const Container = styled.div`
 const Title = styled.h2`
   color: ${(props) => props.theme.colors.primary};
   text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-size: 2.5rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.0rem;
   margin-bottom: 1.5rem;
+  @me
 `;
 
 const Profile = styled.div`
@@ -64,7 +65,7 @@ const LogoutButton = styled.button`
     background: linear-gradient(45deg, #d43842, #e54858);
   }
     @media (max-width: 768px) {
-    width: 30%;
+    width: 50%;
     margin-left: 1rem;
 
   }
