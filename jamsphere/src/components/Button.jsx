@@ -46,6 +46,10 @@ const Button = styled.button`
   transition: 0.5s;
   color: white;
   box-shadow: 0 0 20px #eee;
+  @media (max-width: 768px) {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
 
   ${(props) =>
     props.secondary ? gradientSecondaryBackground : gradientBackground}

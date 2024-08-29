@@ -43,6 +43,14 @@ const ButtonGroup = styled.div`
   display: flex;
   gap: 30px;
 
+  // make the buttons with in the div above it for mobile view and make thier size a little bit smaller
+  @media (max-width: 768px) {
+    display:flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+
 
 
 `;
