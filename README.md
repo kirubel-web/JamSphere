@@ -3,7 +3,7 @@
 Jamsphere is a music management application that allows users to manage their songs. This project uses React for the frontend, Redux for state management, and Node.js with Express and MongoDB for the backend.
 
 
-![](image.png)
+![](./readme-image/image.png)
 
 ## Table of Contents
 
