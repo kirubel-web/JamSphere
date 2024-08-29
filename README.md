@@ -73,6 +73,11 @@ Jamsphere is a music management application that allows users to manage their so
    ```
 
 ## Usage
+on the website you can login with this credentials or you can create your own
+
+Email: ``` guest@example.com ```
+password: ``` guest ```
+
 
 1. Ensure MongoDB is running.
 2. Start the backend server.
