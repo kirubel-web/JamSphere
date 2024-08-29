@@ -19,6 +19,12 @@ const SongInfo = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding-right: 2rem;
+
+  }
 `;
 
 const SongTitle = styled.h3`
