@@ -43,6 +43,17 @@ const SongArtist = styled.p`
   overflow-wrap: break-word;
   font-size: 15px;
   max-width: 30%;
+  @media (max-width: 768px) {
+
+  max-width: 80%;
+  justify-content: right;
+  word-wrap: normal;
+    overflow-wrap: normal;
+
+
+
+
+  }
 `;
 
 const ButtonGroup = styled.div`
