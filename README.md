@@ -159,7 +159,7 @@ frontend/
 
 ### Backend
 
-1. Install Jest and Supertest:
+1. Install Chai and mocha:
 
    ```bash
    npm install --save-dev chai-mocha
