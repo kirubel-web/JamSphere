@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Confetti from "react-confetti";
 import "./styles.css";
@@ -8,12 +8,22 @@ import drum from "../assets/drum.png";
 import piano from "../assets/piano.png";
 import sax from "../assets/sax.png";
 import radio from "../assets/radio.png";
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 export default function Teaser() {
   const navigate = useNavigate();
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    document.body.classList.toggle('dark-mode', !darkMode);
+  };
 
   return (
-    <div className="teaser-container">
+    <div className={`teaser-container ${darkMode ? 'dark' : ''}`}>
+       <div className="theme-toggle" onClick={toggleDarkMode}>
+        {darkMode ? <FaSun /> : <FaMoon />}
+      </div>
       {/* Confetti */}
       <Confetti
         width={window.innerWidth}
@@ -44,8 +54,11 @@ export default function Teaser() {
         </p>
         <p>
           <Link to="/login" className="teaser-button">
-            Join as Guest
+            Login
           </Link>
+          <div className="footer">
+        Built by Kirubel. The source code is available on <a href="https://github.com/kirubel-web/JamSphere" target="_blank" rel="noopener noreferrer">GitHub</a>.
+      </div>
         </p>
       </div>
     </div>

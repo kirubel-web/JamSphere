@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FaGoogle, FaFacebook } from 'react-icons/fa';
 import "./styles.css";
 import Button from "./Button";
 
@@ -89,14 +90,16 @@ export default function SignUp() {
         <button
           className="social-btn"
           onClick={() => handleSocialSignUp("Google")}
+          style={{ margin: '0 20px', padding: '10px 40px' }}
         >
-          Sign up with Google
+          <FaGoogle style={{ color: 'red', fontSize: '24px'}}/>
         </button>
         <button
           className="social-btn"
           onClick={() => handleSocialSignUp("Facebook")}
+          style={{ margin: '0 20px', padding: '10px 40px' }}
         >
-          Sign up with Facebook
+         <FaFacebook style={{ color: 'blue', fontSize: '24px'}}/>
         </button>
       </div>
       <p>
