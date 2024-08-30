@@ -9,6 +9,14 @@
     0 8px 16px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   transition: box-shadow 0.3s ease;
+
+}
+@media (max-width: 768px) {
+  .login-container,
+  .signup-container {
+    margin: 50px 20px;
+  }
+
 }
 
 .login-container:hover,
