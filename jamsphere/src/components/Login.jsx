@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import { FaGoogle, FaFacebook } from 'react-icons/fa';
 import "./styles.css";
 import Button from "./Button";
 
@@ -80,14 +81,18 @@ export default function Login() {
         <button
           className="social-btn"
           onClick={() => handleSocialLogin("Google")}
+          style={{ margin: '0 20px', padding: '10px 40px' }}
         >
-          Login with Google
+          <FaGoogle style={{ color: 'red', fontSize: '24px'}}/>
+
         </button>
         <button
           className="social-btn"
           onClick={() => handleSocialLogin("Facebook")}
+          style={{ margin: '0px 20px', padding: '0px 40px' }}
         >
-          Login with Facebook
+          <FaFacebook style={{ color: 'blue', fontSize: '24px'}}/>
+
         </button>
       </div>
       <p>
