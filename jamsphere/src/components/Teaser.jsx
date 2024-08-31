@@ -22,7 +22,7 @@ export default function Teaser() {
   return (
     <div className={`teaser-container ${darkMode ? 'dark' : ''}`}>
        <div className="theme-toggle" onClick={toggleDarkMode}>
-        {darkMode ? <FaSun /> : <FaMoon />}
+        {darkMode ? <FaSun /> : <FaMoon style={{color:"grey"}} />}
       </div>
       {/* Confetti */}
       <Confetti
