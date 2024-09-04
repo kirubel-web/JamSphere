@@ -7,7 +7,7 @@ import store from "./redux/store";
 import theme from "./styles/theme";
 import globalStyles from "./styles/GlobalStyles";
 import HomePage from "./pages/HomePage";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./context/AuthContext";
 import Login from "./components/Login";
