@@ -1,19 +1,20 @@
-import React, { useState, useEffect, useRef } from "react";
+// Teaser.js
+import React, { useEffect, useRef, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Confetti from "react-confetti";
-import "./styles.css";
+import { ThemeContext } from "./ThemeContext.jsx"; // Import ThemeContext
+import { FaSun, FaMoon } from "react-icons/fa";
+import gsap from "gsap";
 import musicNote from "../assets/music-note.png";
 import guitar from "../assets/guitar.png";
 import drum from "../assets/drum.png";
 import piano from "../assets/piano.png";
 import sax from "../assets/sax.png";
 import radio from "../assets/radio.png";
-import { FaSun, FaMoon } from "react-icons/fa";
-import gsap from "gsap";
 
 export default function Teaser() {
   const navigate = useNavigate();
-  const [darkMode, setDarkMode] = useState(false);
+  const { theme, toggleTheme } = useContext(ThemeContext); // Access theme and toggle function
   const headingRef = useRef(null);
   const getStartedRef = useRef(null);
   const loginRef = useRef(null);
@@ -42,16 +43,12 @@ export default function Teaser() {
     );
   }, []);
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle("dark-mode", !darkMode);
-  };
-
   return (
-    <div className={`teaser-container ${darkMode ? "dark" : ""}`}>
-      <div className="theme-toggle" onClick={toggleDarkMode}>
-        {darkMode ? <FaSun /> : <FaMoon style={{ color: "grey" }} />}
+    <div className={`teaser-container ${theme}`}>
+      <div className="theme-toggle" onClick={toggleTheme}>
+        {theme === "dark" ? <FaSun /> : <FaMoon style={{ color: "grey" }} />}
       </div>
+
       {/* Confetti */}
       <Confetti
         width={window.innerWidth}
@@ -59,7 +56,6 @@ export default function Teaser() {
         numberOfPieces={300}
         recycle={false}
       />
-
       {/* Floating Images/Emojis */}
       <img
         src={musicNote}
@@ -116,7 +112,7 @@ export default function Teaser() {
           </Link>
         </p>
         <div className="footer">
-          Built by Kirubel. The source code is available on{" "}
+          Built by <strong>Kirubel</strong>. The source code is available on{" "}
           <a
             href="https://github.com/kirubel-web/JamSphere"
             target="_blank"
