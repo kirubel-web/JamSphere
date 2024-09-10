@@ -9,14 +9,20 @@
     0 8px 16px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   transition: box-shadow 0.3s ease;
+}
 
+.login-container h2 {
+  margin-bottom: 30px;
+}
+
+.signup-container h2 {
+  margin-bottom: 30px;
 }
 @media (max-width: 768px) {
   .login-container,
   .signup-container {
     margin: 50px 20px;
   }
-
 }
 
 .login-container:hover,
@@ -205,9 +211,6 @@ p {
   animation-duration: 15s;
 }
 
-
-
-
 /* Teaser.css */
 
 body.dark-mode {
@@ -245,3 +248,4 @@ body.dark-mode {
 .footer a:hover {
   text-decoration: underline;
 }
+

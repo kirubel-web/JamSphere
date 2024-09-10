@@ -15,11 +15,7 @@ const globalStyles = css`
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(
-      to right,
-      #f7f7f7,
-      #e3e3e3
-    ); /* Soft gradient background */
+    background: linear-gradient(to right, #f4f4f4, #f1f1f1);
     color: #333; /* Dark text for contrast */
     line-height: 1.6;
     padding: 0;

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import { FaGoogle, FaFacebook } from 'react-icons/fa';
+import { FaGoogle, FaFacebook, FaHome } from "react-icons/fa";
 import "./styles.css";
 import Button from "./Button";
 
@@ -17,13 +17,16 @@ export default function Login() {
     setError("");
 
     try {
-      const response = await fetch("https://jamsphere-backend.vercel.app/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://jamsphere-backend.vercel.app/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
         },
-        body: JSON.stringify({ email, password }),
-      });
+      );
 
       const data = await response.json();
       if (response.ok) {
@@ -44,60 +47,73 @@ export default function Login() {
   };
 
   return (
-    <div className="login-container">
-      <h2 justify="center">Sign In</h2>
-      <form onSubmit={handleSubmit} className="login-form">
-        <div className="form-group">
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            placeholder=" "
-          />
-          <label htmlFor="email">Email</label>
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            placeholder=" "
-          />
-          <label htmlFor="password">Password</label>
-        </div>
-        <Button gradient type="submit">
-          Sign In
+    <>
+      <div className="Home">
+        <Button
+          gradient
+          onClick={() => navigate("/")}
+          style={{
+            position: "absolute",
+            top: "20px",
+            left: "20px",
+          }}
+        >
+          <FaHome style={{ color: "white", fontSize: "24px" }} />
         </Button>
-        {error && <p className="error">{error}</p>}
-      </form>
-      <div className="divider">
-        <span>or</span>
       </div>
-      <div className="social-login">
-        <button
-          className="social-btn"
-          onClick={() => handleSocialLogin("Google")}
-          style={{ margin: '0 20px', padding: '10px 40px' }}
-        >
-          <FaGoogle style={{ color: 'red', fontSize: '24px'}}/>
-
-        </button>
-        <button
-          className="social-btn"
-          onClick={() => handleSocialLogin("Facebook")}
-          style={{ margin: '0px 20px', padding: '0px 40px' }}
-        >
-          <FaFacebook style={{ color: 'blue', fontSize: '24px'}}/>
-
-        </button>
+      <div className="login-container">
+        <h2 justify="center">Sign In</h2>
+        <form onSubmit={handleSubmit} className="login-form">
+          <div className="form-group">
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder=" "
+            />
+            <label htmlFor="email">Email</label>
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder=" "
+            />
+            <label htmlFor="password">Password</label>
+          </div>
+          <Button gradient type="submit">
+            Sign In
+          </Button>
+          {error && <p className="error">{error}</p>}
+        </form>
+        <div className="divider">
+          <span>or</span>
+        </div>
+        <div className="social-login">
+          <button
+            className="social-btn"
+            onClick={() => handleSocialLogin("Google")}
+            style={{ margin: "0 20px", padding: "10px 40px" }}
+          >
+            <FaGoogle style={{ color: "red", fontSize: "24px" }} />
+          </button>
+          <button
+            className="social-btn"
+            onClick={() => handleSocialLogin("Facebook")}
+            style={{ margin: "0px 20px", padding: "0px 40px" }}
+          >
+            <FaFacebook style={{ color: "blue", fontSize: "24px" }} />
+          </button>
+        </div>
+        <p>
+          Don't have an account? <Link to="/signup">Sign up here</Link>
+        </p>
       </div>
-      <p>
-        Don't have an account? <Link to="/signup">Sign up here</Link>
-      </p>
-    </div>
+    </>
   );
 }
