@@ -37,8 +37,10 @@ export default function SignUp() {
 
       const data = await response.json();
       if (response.ok) {
-        // Redirect to login after successful signup
-        navigate("/login");
+
+        login(data)
+
+        navigate("/");
       } else {
         setError(data.message || "Registration failed");
       }
