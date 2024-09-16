@@ -26,6 +26,6 @@ dist-ssr
 # firebase files
 
 
-./jamsphere-af57a-firebase-adminsdk-ss7rb-21192d32d7.json
-./firebaseAdmin.js
 
+
+./.env
