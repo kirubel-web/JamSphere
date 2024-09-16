@@ -1,9 +1,15 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import { FaGoogle, FaFacebook, FaHome } from "react-icons/fa";
 import "./styles.css";
 import Button from "./Button";
+import { FaGoogle, FaFacebook, FaHome } from "react-icons/fa";
+import {
+  auth,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "../../firebaseConfig";
+import axios from "axios";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -44,6 +50,28 @@ export default function Login() {
   const handleSocialLogin = (provider) => {
     // Implement social login logic here
     console.log(`Login with ${provider}`);
+  };
+  const handleGoogleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      const token = await user.getIdToken();
+
+   
+      const response = await axios.post(
+        "https://jamsphere-backend.vercel.app/api/auth/google-login",
+        { token: token },
+      );
+
+      const userData = response.data.user;
+		login(userData);
+      console.log("User signed in successfully:", user);
+      navigate("/");
+	} catch (error) {
+      console.error("Error during Google sign-in:", error);
+    }
   };
 
   return (
@@ -97,7 +125,7 @@ export default function Login() {
         <div className="social-login">
           <button
             className="social-btn"
-            onClick={() => handleSocialLogin("Google")}
+            onClick={() => handleGoogleLogin("Google")}
             style={{ margin: "0 20px", padding: "10px 40px" }}
           >
             <FaGoogle style={{ color: "red", fontSize: "24px" }} />

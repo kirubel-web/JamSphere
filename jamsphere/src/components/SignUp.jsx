@@ -1,16 +1,22 @@
 import React, { useState, useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 import { FaGoogle, FaFacebook, FaHome } from "react-icons/fa";
 import "./styles.css";
 import Button from "./Button";
+import {
+  auth,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "../../firebaseConfig";
+import axios from "axios"; // To make requests to your backend
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { signup } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -32,8 +38,7 @@ export default function SignUp() {
       const data = await response.json();
       if (response.ok) {
         // Redirect to login after successful signup
-        signup(data);
-        navigate("/");
+        navigate("/login");
       } else {
         setError(data.message || "Registration failed");
       }
@@ -45,6 +50,28 @@ export default function SignUp() {
   const handleSocialSignUp = (provider) => {
     // Implement social sign up logic here
     console.log(`Sign up with ${provider}`);
+  };
+
+  const handleGoogleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      const token = await user.getIdToken();
+
+      const response = await axios.post(
+        "https://jamsphere-backend.vercel.app/api/auth/google-login",
+        { token: token },
+      );
+
+      const userData = response.data.user;
+		login(userData);
+      console.log("User signed in successfully:", user);
+      navigate("/");
+	} catch (error) {
+      console.error("Error during Google sign-in:", error);
+    }
   };
 
   return (
@@ -109,7 +136,7 @@ export default function SignUp() {
         <div className="social-login">
           <button
             className="social-btn"
-            onClick={() => handleSocialSignUp("Google")}
+            onClick={() => handleGoogleLogin("Google")}
             style={{ margin: "0 20px", padding: "10px 40px" }}
           >
             <FaGoogle style={{ color: "red", fontSize: "24px" }} />
