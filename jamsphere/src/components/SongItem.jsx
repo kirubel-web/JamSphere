@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { useDispatch } from "react-redux";
-import { deleteSongThunk } from "../redux/songs/songsSlice";
+import { deleteSong } from "../redux/songs/songsSlice";
 import Button from "./Button";
 import SongForm from "./SongForm";
 
@@ -77,7 +77,7 @@ const SongItem = ({ song }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteSongThunk(song._id));
+    dispatch(deleteSong(song._id));
   };
 
   if (isEditing) {

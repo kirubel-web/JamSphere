@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import styled from "@emotion/styled";
-import { addSongThunk, updateSongThunk } from "../redux/songs/songsSlice";
+import { addSong, updateSong } from "../redux/songs/songsSlice";
 import Button from "./Button";
 
 const Form = styled.form`
@@ -69,9 +69,9 @@ const SongForm = ({ songToEdit = null }) => {
     e.preventDefault();
     if (title && artist) {
       if (songToEdit) {
-        dispatch(updateSongThunk({ _id: songToEdit._id, title, artist }));
+        dispatch(updateSong({ _id: songToEdit._id, title, artist }));
       } else {
-        dispatch(addSongThunk({ title, artist }));
+        dispatch(addSong({ title, artist }));
       }
       setTitle("");
       setArtist("");

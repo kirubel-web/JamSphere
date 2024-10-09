@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchSongsThunk } from "../redux/songs/songsSlice";
+import { fetchSongs } from "../redux/songs/songsSlice";
 import SongItem from "./SongItem";
 import styled from "styled-components";
 
@@ -41,7 +41,7 @@ const SongList = () => {
   const { list, status, error } = useSelector((state) => state.songs);
 
   useEffect(() => {
-    dispatch(fetchSongsThunk());
+    dispatch(fetchSongs());
   }, [dispatch]);
 
   if (status === "loading") {
@@ -64,4 +64,3 @@ const SongList = () => {
 };
 
 export default SongList;
-
